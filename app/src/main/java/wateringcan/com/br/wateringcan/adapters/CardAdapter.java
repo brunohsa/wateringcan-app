@@ -1,7 +1,6 @@
-package wateringcan.com.br.wateringcan;
+package wateringcan.com.br.wateringcan.adapters;
 
 import android.content.Context;
-import android.graphics.Color;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
@@ -11,11 +10,12 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import org.androidannotations.annotations.ViewById;
-
+import java.util.Date;
 import java.util.List;
 
+import wateringcan.com.br.wateringcan.R;
 import wateringcan.com.br.wateringcan.model.Report;
+import wateringcan.com.br.wateringcan.util.DateUtil;
 
 /**
  * Created by Bruno on 30/10/2017.
@@ -30,6 +30,8 @@ public class CardAdapter extends RecyclerView.Adapter<CardAdapter.ViewHolder> {
 
         TextView temperature;
         TextView humidity;
+        TextView dayOfWeek;
+        TextView hours;
         CardView cardView;
         ImageView imgWeather;
 
@@ -38,6 +40,8 @@ public class CardAdapter extends RecyclerView.Adapter<CardAdapter.ViewHolder> {
             super(v);
             this.temperature = v.findViewById(R.id.lblTemperature);
             this.humidity = v.findViewById(R.id.lblHumidity);
+            this.dayOfWeek = v.findViewById(R.id.lblDayOfWeek);
+            this.hours = v.findViewById(R.id.lblHours);
             this.cardView = v.findViewById(R.id.cardViewLayout);
             this.imgWeather = v.findViewById(R.id.imgWeather);
         }
@@ -59,9 +63,12 @@ public class CardAdapter extends RecyclerView.Adapter<CardAdapter.ViewHolder> {
     public void onBindViewHolder(ViewHolder holder, int position) {
         Double temperature = reports.get(position).getTemperature();
         Double humidity = reports.get(position).getHumidity();
+        Date dateRelease = reports.get(position).getDateRelease();
 
         holder.temperature.setText(temperature.toString());
         holder.humidity.setText(humidity.toString());
+        holder.dayOfWeek.setText(DateUtil.getDayOfWeek(dateRelease));
+        holder.hours.setText(DateUtil.getHours(dateRelease));
 
         setImageAndColorWeather(holder, temperature);
     }
@@ -79,7 +86,7 @@ public class CardAdapter extends RecyclerView.Adapter<CardAdapter.ViewHolder> {
         }
     }
 
-    private int getColor(Integer color){
+    private int getColor(Integer color) {
         return ContextCompat.getColor(context, color);
     }
 

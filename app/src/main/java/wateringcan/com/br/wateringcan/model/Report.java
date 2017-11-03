@@ -17,15 +17,6 @@ public class Report {
 
     private Double temperature;
 
-    public Report() {
-    }
-
-    public Report(Double humidity, Double temperature) {
-        this.dateRelease = Calendar.getInstance().getTime();
-        this.humidity = humidity;
-        this.temperature = temperature;
-    }
-
     public Long getId() {
         return id;
     }

@@ -1,8 +1,13 @@
 <resources>
     <string name="app_name">Watering Can</string>
 
+    <string name="config_view">Configurações</string>
+    <string name="edit_config_view">Editar Configuração</string>
+
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
 
     <string name="action_settings">Atualizar</string>
+
+    <string name="save_menu">Salvar</string>
 </resources>

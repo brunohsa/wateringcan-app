@@ -79,7 +79,7 @@ public class DateUtil {
         long hours = difference / (60 * 60 * 1000);
 
         // Converte a diferença de minutos para dias
-        long dias = hours * 24;
+        long dias = hours / 24;
 
         return dias;
     }

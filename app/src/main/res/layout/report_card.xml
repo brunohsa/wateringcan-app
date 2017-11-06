@@ -11,132 +11,136 @@
         android:layout_height="100dp"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
-        app:cardBackgroundColor="@color/snow">
-
-        <View
-            android:id="@+id/view"
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:background="@color/divider" />
+        app:cardBackgroundColor="@color/snow"
+        app:cardCornerRadius="2dp"
+        app:cardElevation="5dp">
 
         <RelativeLayout
-            android:id="@+id/weatherLayout"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_margin="5dp"
-            android:layout_marginBottom="5dp"
-            android:layout_marginEnd="5dp"
-            android:layout_marginLeft="5dp"
-            android:layout_marginRight="5dp"
-            android:layout_marginStart="5dp"
-            android:layout_marginTop="5dp">
-
-            <ImageView
-                android:id="@+id/imgWeather"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentStart="true"
-                android:layout_centerVertical="true"
-                android:adjustViewBounds="true"
-                android:maxHeight="60dp"
-                android:maxWidth="60dp"
-                app:srcCompat="@mipmap/snow" />
-
-            <TextView
-                android:id="@+id/lblDayOfWeek"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentTop="true"
-                android:layout_marginTop="5dp"
-                android:layout_toEndOf="@+id/imgWeather"
-                android:text="Segunda-Feira"
-                android:textColor="@android:color/white"
-                android:textSize="18sp"
-                android:textStyle="bold" />
+            android:layout_height="match_parent">
 
             <RelativeLayout
-                android:id="@+id/relativeLayout2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentEnd="true"
-                android:layout_alignTop="@+id/imgWeather"
-                android:layout_marginEnd="12dp"
-                android:layout_marginLeft="4dp"
-                android:layout_marginRight="4dp">
+                android:id="@+id/weatherLayout"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:padding="5dp">
 
-                <TextView
-                    android:id="@+id/lblCelsius"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignBaseline="@+id/lblTemperature"
-                    android:layout_alignBottom="@+id/lblTemperature"
-                    android:layout_toEndOf="@+id/lblTemperature"
-                    android:text="°C"
-                    android:textColor="@android:color/white"
-                    android:textSize="24sp"
-                    android:textStyle="bold" />
-
-                <TextView
-                    android:id="@+id/lblTemperature"
+                <ImageView
+                    android:id="@+id/imgWeather"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentStart="true"
+                    android:layout_centerVertical="true"
+                    android:adjustViewBounds="true"
+                    android:maxHeight="60dp"
+                    android:maxWidth="60dp"
+                    app:srcCompat="@mipmap/snow" />
+
+                <TextView
+                    android:id="@+id/lblDayOfWeek"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
                     android:layout_alignParentTop="true"
-                    android:text="25"
+                    android:layout_marginTop="5dp"
+                    android:layout_toEndOf="@+id/imgWeather"
+                    android:text="Segunda-Feira"
                     android:textColor="@android:color/white"
-                    android:textSize="24sp"
+                    android:textSize="18sp"
                     android:textStyle="bold" />
+
+                <RelativeLayout
+                    android:id="@+id/relativeLayout2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignTop="@+id/imgWeather"
+                    android:layout_marginEnd="12dp"
+                    android:layout_marginLeft="4dp"
+                    android:layout_marginRight="4dp">
+
+                    <TextView
+                        android:id="@+id/lblCelsius"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignBaseline="@+id/lblTemperature"
+                        android:layout_alignBottom="@+id/lblTemperature"
+                        android:layout_toEndOf="@+id/lblTemperature"
+                        android:text="°C"
+                        android:textColor="@android:color/white"
+                        android:textSize="24sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/lblTemperature"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentStart="true"
+                        android:layout_alignParentTop="true"
+                        android:text="25"
+                        android:textColor="@android:color/white"
+                        android:textSize="24sp"
+                        android:textStyle="bold" />
+
+                </RelativeLayout>
+
+                <ImageView
+                    android:id="@+id/imgHumidity"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:layout_alignTop="@+id/relativeLayout"
+                    android:layout_marginStart="15dp"
+                    android:layout_toEndOf="@+id/imgWeather"
+                    app:srcCompat="@mipmap/rain" />
+
+                <RelativeLayout
+                    android:id="@+id/relativeLayout"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignBottom="@+id/imgWeather"
+                    android:layout_marginLeft="5dp"
+                    android:layout_toEndOf="@+id/imgHumidity">
+
+                    <TextView
+                        android:id="@+id/txtHumidity"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_toRightOf="@id/imgHumidity"
+                        android:text="U : "
+                        android:textColor="@android:color/white"
+                        android:textSize="14sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/lblHumidity"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_toRightOf="@id/txtHumidity"
+                        android:text="20"
+                        android:textColor="@android:color/white"
+                        android:textSize="14sp" />
+                </RelativeLayout>
+
+                <TextView
+                    android:id="@+id/lblHours"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignBaseline="@+id/relativeLayout"
+                    android:layout_alignBottom="@+id/relativeLayout"
+                    android:layout_toStartOf="@+id/relativeLayout2"
+                    android:elevation="0dp"
+                    android:text="05:26"
+                    android:textColor="@android:color/white" />
 
             </RelativeLayout>
 
-            <ImageView
-                android:id="@+id/imgHumidity"
-                android:layout_width="20dp"
-                android:layout_height="20dp"
-                android:layout_alignTop="@+id/relativeLayout"
-                android:layout_marginStart="15dp"
-                android:layout_toEndOf="@+id/imgWeather"
-                app:srcCompat="@mipmap/rain" />
-
-            <RelativeLayout
-                android:id="@+id/relativeLayout"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignBottom="@+id/imgWeather"
-                android:layout_marginLeft="5dp"
-                android:layout_toEndOf="@+id/imgHumidity">
-
-                <TextView
-                    android:id="@+id/txtHumidity"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_toRightOf="@id/imgHumidity"
-                    android:text="U : "
-                    android:textColor="@android:color/white"
-                    android:textSize="14sp"
-                    android:textStyle="bold" />
-
-                <TextView
-                    android:id="@+id/lblHumidity"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_toRightOf="@id/txtHumidity"
-                    android:text="20"
-                    android:textColor="@android:color/white"
-                    android:textSize="14sp" />
-            </RelativeLayout>
-
-            <TextView
-                android:id="@+id/lblHours"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignBaseline="@+id/relativeLayout"
-                android:layout_alignBottom="@+id/relativeLayout"
-                android:layout_toStartOf="@+id/relativeLayout2"
-                android:elevation="0dp"
-                android:text="05:26"
-                android:textColor="@android:color/white" />
-
+            <View
+                android:id="@+id/view"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_alignBottom="@+id/weatherLayout"
+                android:layout_alignParentBottom="true"
+                android:layout_marginLeft="65dp"
+                android:background="@android:color/white" />
         </RelativeLayout>
 
     </android.support.v7.widget.CardView>

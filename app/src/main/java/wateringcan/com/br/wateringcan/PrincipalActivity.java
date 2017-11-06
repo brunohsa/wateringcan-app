@@ -12,7 +12,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.ProgressBar;
+import android.widget.RelativeLayout;
 
 import org.androidannotations.annotations.AfterViews;
 import org.androidannotations.annotations.Background;
@@ -22,7 +22,7 @@ import org.androidannotations.annotations.ViewById;
 
 import java.util.List;
 
-import wateringcan.com.br.wateringcan.adapters.CardAdapter;
+import wateringcan.com.br.wateringcan.adapters.ReportCardAdapter;
 import wateringcan.com.br.wateringcan.model.Report;
 import wateringcan.com.br.wateringcan.rest.ReportRestService;
 
@@ -43,7 +43,7 @@ public class PrincipalActivity extends AppCompatActivity
     protected RecyclerView cardsView;
 
     @ViewById
-    protected ProgressBar progressBar;
+    protected RelativeLayout progressLayout;
 
     @Bean
     protected ReportRestService reportRestService;
@@ -70,7 +70,7 @@ public class PrincipalActivity extends AppCompatActivity
             @Override
             public void run() {
                 cardsView.setLayoutManager(new LinearLayoutManager(PrincipalActivity.this));
-                CardAdapter adapter = new CardAdapter(reports, PrincipalActivity.this);
+                ReportCardAdapter adapter = new ReportCardAdapter(reports, PrincipalActivity.this);
                 cardsView.setAdapter(adapter);
             }
         });
@@ -95,8 +95,7 @@ public class PrincipalActivity extends AppCompatActivity
     public boolean onOptionsItemSelected(MenuItem item) {
         if (item.getItemId() == R.id.action_settings) {
             cardsView.setVisibility(View.GONE);
-            progressBar.setVisibility(View.VISIBLE);
-
+            progressLayout.setVisibility(View.VISIBLE);
             mountCardView();
             return true;
         }
@@ -107,7 +106,7 @@ public class PrincipalActivity extends AppCompatActivity
     public boolean onNavigationItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case R.id.nav_manage:
-                Intent intent = new Intent(this, ConfigurationActivity.class);
+                Intent intent = new Intent(this, ConfigurationActivity_.class);
                 startActivity(intent);
                 break;
         }

@@ -72,7 +72,7 @@ public class ReportRestService {
         return reports;
     }
 
-    private void sortReportList(List<Report> reports){
+    private void sortReportList(List<Report> reports) {
         Collections.sort(reports, new Comparator<Report>() {
 
             @Override
@@ -87,7 +87,7 @@ public class ReportRestService {
         });
     }
 
-    private View getView(int id){
+    private View getView(int id) {
         return ((Activity) context).findViewById(id);
     }
 }
